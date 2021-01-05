@@ -1,0 +1,9 @@
+[
+  {
+    "name": "Soduku",
+    "routerName": "sudoku",
+    "path": "Sudoku/index.md",
+    "preview": "/Sudoku/img2.png",
+    "text": "习题一：制作一个数独"
+  }
+]
