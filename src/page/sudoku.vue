@@ -10,10 +10,11 @@
       </template>
     </myHeader>
     <div class="page-sudoku-content">
+      <!-- :style="{ width: `${100 - viewType * 50}%` }" 暂时修改-->
       <mavon-editor
         ref="md"
         class="page-sudoku-content-md"
-        :style="{ width: `${100 - viewType * 50}%` }"
+        :style="{ width: `0%` }"
         v-html="handbook"
         :subfield="false"
         :toolbarsFlag="false"
@@ -28,7 +29,8 @@
       <div class="page-sudoku-content-arrow-right" @click="changeViewType(1)" :style="{ left: `${mdWidth}px` }">
         <img src="../assets/img/arrow.png" v-if="viewType === 2 && !timer" />
       </div>
-      <div class="page-sudoku-content-solve" :style="{ width: `${viewType * 50}%` }">
+      <!-- :style="{ width: `${viewType * 50}%` } 暂时修改-->
+      <div class="page-sudoku-content-solve" :style="{ width: `100%` }">
         <SudokuSolve class="page-sudoku-content-solve-box" />
       </div>
     </div>
