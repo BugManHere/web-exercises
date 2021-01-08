@@ -16,13 +16,6 @@
             </div>
           </div>
         </div>
-
-        <!-- <div v-for="(item) in array" :key="item.id" class="container-block">
-          {{item}}
-          <div v-for="(item) in array" :key="item.id" class="container-block">
-            {{item}}
-          </div>
-        </div> -->
       </div>
 
       <!-- 按钮 -->
@@ -65,13 +58,11 @@ export default {
         this.array.push(Math.floor(Math.random()*9+1));
         console.log("随机数",this.array);
       }
-      
     },
 
 
     // 点击生成 9*9 的随机数组
     randomArray() {
-      // this.makeRandom();
       var msgRow = document.querySelectorAll(".container-block-row");
       // var msgClos = document.querySelectorAll(".container-block-cols");
       var msgClo = document.querySelectorAll(".container-block-col");
@@ -80,17 +71,17 @@ export default {
       for(var i=0;i<72;i++){
         console.log("列内容：",Math.floor(Math.random()*9+1));
         msgClo[i].innerHTML=Math.floor(Math.random()*9+1);
-        // for(var j=0;j<9;j++){
-        //   // msgClos[i].msgClo
-        // }
       }
-      for(var v=0;v<9;v++){
+      // 生成第一行的随机数
+      for(var v=0;v<100;v++){
         // var domData=new Array;
         // console.log("行内容：",Math.floor(Math.random()*9+1));
         // msgRow[v].innerHTML=Math.floor(Math.random()*9+1);
-        // this.array[i]=Math.floor(Math.random()*9+1);
-        this.array.push(Math.floor(Math.random()*9+1));
-        // console.log("随机数",this.array[i]);
+        // this.array.push(Math.floor(Math.random()*9+1));
+        var r=Math.floor(Math.random()*9+1)
+        if(this.array.indexOf(r)==-1){
+          this.array.push(r);
+        }
       }
       console.log("数组是：",this.array)
     },
@@ -99,7 +90,7 @@ export default {
     createShuDuArr () {
       let arr = [], finArr = [];
       for(let i = 1; i < 10; i ++) {
-        arr.push(i)
+        arr.push(i);
       }
       finArr = new Array(9).fill(arr);
       return finArr.flat();
@@ -126,17 +117,17 @@ export default {
       display: flex;
       height: 100%;
       // width: 100%;
-      .container-block-row {
-        // display: none;
-        // position: absolute;
-        // position: relative;
 
+      // 第一行的样式
+      .container-block-row {
         width: 140px;
         height:140px;
         border: 1px solid black;
         line-height: 150px;
         // transform: translate(-50%,-50%);
         // text-align: center;
+
+        // 下方每一列的样式
         .container-block-cols{
           position: absolute;
           top:140px;
